@@ -50,8 +50,8 @@
 
 @interface TITokenFieldInternalDelegate : NSObject <UITextFieldDelegate> {
 	
-	id <UITextFieldDelegate> delegate;
-	TITokenField * tokenField;
+	id <UITextFieldDelegate> __unsafe_unretained delegate;
+	TITokenField * __unsafe_unretained tokenField;
 }
 
 @end
@@ -81,7 +81,7 @@
 @property (nonatomic, readonly) UITableView * resultsTable;
 @property (nonatomic, readonly) UIView * contentView;
 @property (nonatomic, copy) NSArray * sourceArray;
-@property (nonatomic, readonly) NSArray * tokenTitles;
+@property (unsafe_unretained, nonatomic, readonly) NSArray * tokenTitles;
 
 - (void)updateContentSize;
 
@@ -97,11 +97,11 @@ typedef enum {
 
 @interface TITokenField : UITextField {
 	
-	id <TITokenFieldDelegate> delegate;
+	id <TITokenFieldDelegate> __unsafe_unretained delegate;
 	TITokenFieldInternalDelegate * internalDelegate;
 	
 	NSMutableArray * tokens;
-	TIToken * selectedToken;
+	TIToken * __unsafe_unretained selectedToken;
 	
 	BOOL editable;
 	BOOL resultsModeEnabled;
@@ -113,16 +113,16 @@ typedef enum {
 	NSCharacterSet * tokenizingCharacters;
 }
 
-@property (nonatomic, assign) id <TITokenFieldDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id <TITokenFieldDelegate> delegate;
 @property (nonatomic, readonly) NSArray * tokens;
-@property (nonatomic, readonly) TIToken * selectedToken;
-@property (nonatomic, readonly) NSArray * tokenTitles;
-@property (nonatomic, readonly) NSArray * tokenObjects;
+@property (unsafe_unretained, nonatomic, readonly) TIToken * selectedToken;
+@property (unsafe_unretained, nonatomic, readonly) NSArray * tokenTitles;
+@property (unsafe_unretained, nonatomic, readonly) NSArray * tokenObjects;
 @property (nonatomic, assign) BOOL editable;
 @property (nonatomic, assign) BOOL resultsModeEnabled;
 @property (nonatomic, assign) BOOL removesTokensOnEndEditing;
 @property (nonatomic, readonly) int numberOfLines;
-@property (nonatomic, retain) NSCharacterSet * tokenizingCharacters;
+@property (nonatomic, strong) NSCharacterSet * tokenizingCharacters;
 
 - (void)addToken:(TIToken *)title;
 - (TIToken *)addTokenWithTitle:(NSString *)title;
@@ -164,9 +164,9 @@ typedef enum {
 }
 
 @property (nonatomic, copy) NSString * title;
-@property (nonatomic, retain) id representedObject;
-@property (nonatomic, retain) UIFont * font;
-@property (nonatomic, retain) UIColor * tintColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) id representedObject;
+@property (nonatomic, strong) UIFont * font;
+@property (nonatomic, strong) UIColor * tintColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic, assign) TITokenAccessoryType accessoryType;
 @property (nonatomic, assign) CGFloat maxWidth;
 

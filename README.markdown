@@ -1,15 +1,23 @@
 # TITokenField
 ### Kinda like an NSTokenField for iOS (see Messages / Mail apps).
 
+---
+
+This is a fork of [https://github.com/thermogl/TITokenField](https://github.com/thermogl/TITokenField) updated to use ARC and targeting iOS6.
+
+
+
 ## Usage
 
 See the "TokenFieldExample" app for details on usage. It's limited at the moment to one tokenising field and a content view below because it's pulled straight from one of my apps. Multiple field support requires tweaking.
 
 ## ARC?
 
-Nah.
+Yes!
 
 ## License
+
+This license is from the parent repo.
 
 	This control is dual licensed:
 	You can use it for free under the BSD licence below or, 
